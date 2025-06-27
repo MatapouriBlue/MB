@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matapouri Blue</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            font-weight: 300;
+        }
+
+        /* Header Section - Top Half */
+        .hero-section {
+            height: 100vh;
+            background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABkAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUWEHInGBEzKRobHBCNHwFCNCUuFy8DNjcoKSkkPR4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK//2Q==');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Navigation */
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 300;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 300;
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Content */
+        .hero-content {
+            text-align: center;
+            z-index: 50;
+        }
+
+        .select-dates-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 300;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .select-dates-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Introduction Section - Bottom Half */
+        .intro-section {
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .intro-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .intro-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #34495e;
+            font-weight: 300;
+            text-align: justify;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Overlay for better text readability */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .select-dates-btn {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+            
+            .intro-title {
+                font-size: 2rem;
+            }
+            
+            .intro-text {
+                font-size: 1rem;
+                text-align: left;
+            }
+            
+            .intro-section {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #c3cfe2;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8b8d8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section - Top Half -->
+    <section class="hero-section" id="home">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        
+        <!-- Navigation -->
+        <nav>
+            <div class="nav-container">
+                <div class="logo">Matapouri Blue</div>
+                <ul class="nav-links">
+                    <li><a href="#booking">Booking Details</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#dates">Choose Your Dates</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <button class="select-dates-btn" onclick="scrollToIntro()">Select Your Dates</button>
+        </div>
+    </section>
+
+    <!-- Introduction Section - Bottom Half -->
+    <section class="intro-section" id="intro">
+        <div class="intro-container">
+            <h2 class="intro-title">Welcome to Our Tranquil Retreat in Kinloch, Taupo</h2>
+            <div class="intro-text">
+                <p>Nestled in the heart of Kinloch, Taupo, our accommodation offers a private, quiet, and safe space where you can truly unwind. Just a 10-minute walk to the lake, our retreat invites you to experience the beauty of nature right on your doorstep.</p>
+
+                <p>Immerse yourself in our beautiful gardens, designed with a Japanese Zen feature that separates the guests' private courtyard from the host space. The peaceful surroundings are home to a variety of majestic wildlife, including the elegant blue herons that roam freely in the area. If you're fortunate enough, you might even spot two curious magpies patrolling the grounds early in the morning, adding a touch of magic to your stay.</p>
+
+                <p>Our comfortable accommodation is the perfect base to relax and rejuvenate. Whether you're eager to explore the outdoors or prefer to enjoy the serenity of our gardens with a good book, there's something for everyone. If the mood strikes, you're welcome to lend a hand in the gardens—an opportunity to connect with nature and enhance your retreat experience.</p>
+
+                <p><strong>Weather: Best in the North Island? Maybe…</strong><br>
+                Don't let the cooler climate put you off. Anyone who has spent time in the Taupo region, especially Kinloch, will tell you that the air here is truly magical. Every breath revitalizes your senses. Thanks to the dry and calm climate, you won't feel the cold the same way you would in a more humid and windy area. In winter, when the forecast indicates cooler temperatures, it often feels warmer when the sun is out. Kinloch enjoys mostly calm weather, but when conditions change, it adds an exciting contrast to the serene and restful calm that surrounds you.</p>
+
+                <p>Whether you're seeking adventure or simply a quiet space to recharge, our retreat offers the ideal environment for relaxation and rejuvenation.</p>
+
+                <p>Take some time to explore our website—you might be pleasantly surprised by all that we have to offer.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Set the background image from uploaded file
+        window.addEventListener('DOMContentLoaded', function() {
+            // This will use the uploaded image file
+            const heroBackground = document.querySelector('.hero-background');
+            
+            // Try to read the uploaded image file
+            if (window.fs && window.fs.readFile) {
+                try {
+                    window.fs.readFile('image.jpg', { encoding: 'base64' })
+                        .then(data => {
+                            heroBackground.style.backgroundImage = `url(data:image/jpeg;base64,${data})`;
+                        })
+                        .catch(err => {
+                            console.log('Could not load uploaded image, using placeholder');
+                            // Fallback to a nature/plant themed background
+                            heroBackground.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23228B22" width="100" height="100"/><circle fill="%23006400" cx="20" cy="30" r="15"/><circle fill="%2332CD32" cx="70" cy="20" r="12"/><circle fill="%23228B22" cx="80" cy="60" r="18"/><circle fill="%23006400" cx="30" cy="70" r="10"/></svg>')`;
+                        });
+                } catch (error) {
+                    console.log('File system not available, using placeholder');
+                    heroBackground.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23228B22" width="100" height="100"/><circle fill="%23006400" cx="20" cy="30" r="15"/><circle fill="%23228B22" cx="70" cy="20" r="12"/><circle fill="%2332CD32" cx="80" cy="60" r="18"/><circle fill="%23006400" cx="30" cy="70" r="10"/></svg>')`;
+                }
+            } else {
+                // Fallback background
+                heroBackground.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23228B22" width="100" height="100"/><circle fill="%23006400" cx="20" cy="30" r="15"/><circle fill="%2332CD32" cx="70" cy="20" r="12"/><circle fill="%23228B22" cx="80" cy="60" r="18"/><circle fill="%23006400" cx="30" cy="70" r="10"/></svg>')`;
+            }
+        });
+
+        function scrollToIntro() {
+            document.getElementById('intro').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
